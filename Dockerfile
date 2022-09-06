@@ -7,5 +7,4 @@ ADD requirements.txt requirements.txt
 RUN pip3 install --prefix=/packages -r requirements.txt 
 
 FROM gcr.io/spark-operator/spark-py:v3.1.1
-ARG SITE_PACKAGES
 COPY --from=compile-image /packages/lib/python3.7/site-packages /usr/lib/python3/dist-packages
