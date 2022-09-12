@@ -18,7 +18,7 @@ To set up the local minikube cluster with spark-operator
 kubectl apply -f job.yaml
 ```
 
-### Port-forward spark UI:
+### Port-forward Spark UI
 ```bash
 kubectl port-forward pyspark-job-driver 4040:4040
 ```
