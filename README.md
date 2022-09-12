@@ -5,8 +5,9 @@ https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data
 https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
 
 ## How to run:
-1. Make sure u have docker and minikube installed
+Make sure u have docker and minikube installed
 
-2. ```bash
+Then run
+```bash
 make all
 ```
