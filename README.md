@@ -4,15 +4,9 @@ https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data
 ### The model is trained in a local minikube cluster using spark-on-k8s-operator:
 https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
 
-## Run project:
-```bash
+## How to run:
+1. Make sure u have docker and minikube installed
+
+2. ```bash
 make all
 ```
-## Launch Spark:
-```bash
-spark-shell
-```
-## Access SparkUI at http://localhost:4040
-
-### The model is trained in a local minikube cluster using spark-on-k8s-operator:
-https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
