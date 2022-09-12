@@ -9,7 +9,7 @@ spec:
   mode: cluster
   image: "docker.io/library/localspark:latest"
   imagePullPolicy: Never
-  mainApplicationFile: local:///mnt/main.py
+  mainApplicationFile: local:///mnt/job.py
   sparkVersion: "3.1.1"
   volumes:
     - name: "data-volume"
