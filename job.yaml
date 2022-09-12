@@ -14,7 +14,7 @@ spec:
   volumes:
     - name: "data-volume"
       hostPath:
-        path: "/mnt/data"
+        path: "/mnt"
         type: Directory
   restartPolicy:
     type: OnFailure
@@ -31,7 +31,7 @@ spec:
     serviceAccount: spark
     volumeMounts:
       - name: "data-volume"
-        mountPath: "/mnt/data"
+        mountPath: "/mnt"
   executor:
     cores: 1
     instances: 1
@@ -40,4 +40,4 @@ spec:
       version: 3.1.1
     volumeMounts:
       - name: "data-volume"
-        mountPath: "/mnt/data"
+        mountPath: "/mnt"
