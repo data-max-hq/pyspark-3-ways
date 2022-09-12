@@ -11,6 +11,22 @@ https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
 ```bash
 make all
 ```
+To set up the local minikube cluster with spark-operator
+
+- Then apply the job
+```bash
+kubectl apply -f job.yaml
+```
+
+### Port-forward spark UI:
+```bash
+kubectl port-forward pyspark-job-driver 4040:4040
+```
+
+### Check out logs for model accuracy
+```bash
+kubectl -n=default logs -f pyspark-job-driver | grep accuracy
+```
 
 ## How to run on GCP:
 - Make sure you have the data uploaded on GCS
