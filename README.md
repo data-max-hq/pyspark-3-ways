@@ -1,29 +1,29 @@
-# Simple PySpark model built for:
+# This project shows how to run a pyspark job on Kubernetes, GCP and Airflow
+
+## Simple PySpark model built. Download required dataset in link below:
 https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data
 
-### The model is trained in a local minikube cluster using spark-on-k8s-operator:
-https://github.com/GoogleCloudPlatform/spark-on-k8s-operator
+## How to run locally on Kubernetes using SparkOperator:
+1. Prerequisites:
+- Docker
+- Minikube
 
-## How to run locally:
-- Make sure u have docker and minikube installed
-
-- Then run
+2. Create minikube cluster, build and load image to minikube, and deploy SparkOperator
 ```bash
 make all
 ```
-To set up the local minikube cluster with spark-operator
 
-- Then apply the job
+3. Apply pyspark job
 ```bash
 kubectl apply -f job.yaml
 ```
 
-### Port-forward Spark UI
+4. Port-forward Spark UI. Open Spark UI at https://localhost:4040
 ```bash
 kubectl port-forward pyspark-job-driver 4040:4040
 ```
 
-### Check out logs for model accuracy
+5. Check out logs for model accuracy
 ```bash
 kubectl -n=default logs -f pyspark-job-driver | grep accuracy
 ```
@@ -35,17 +35,17 @@ kubectl -n=default logs -f pyspark-job-driver | grep accuracy
 - Upload job_dataproc.py to GCS and submit job
 
 ## How to run on Airflow locally:
-- Install requirements:
+1. Install requirements:
     ```bash
     pip install -r requirements_airflow.txt
     ```
-- Run Airflow:
+2. Run Airflow:
     ```bash
     AIRFLOW_HOME=$(pwd) airflow standalone
     ```
-- Remove example DAGs. Open `airflow.cfg`, change `load_examples = True` to `load_examples = False`
-- Log in to Airflow UI:
-    ```bash
+3. Remove example DAGs. Open `airflow.cfg`, change `load_examples = True` to `load_examples = False`
+4. Log in to Airflow UI:
+    ```
     url: http://localhost:8080
     username: admin
     password: <show during start or in standalone_admin_password.txt>
