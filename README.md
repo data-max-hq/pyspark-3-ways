@@ -14,6 +14,6 @@ make all
 
 ## How to run on GCP:
 - Make sure you have the data uploaded on GCS
-- Update the <bucket-name> in job_dataproc.py file
+- Update the \<bucket-name\> in job_dataproc.py file
 - When creating the Daraproc cluster make sure to include Anaconda
 - Upload job_dataproc.py to GCS and submit job
