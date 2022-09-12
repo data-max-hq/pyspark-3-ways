@@ -37,7 +37,7 @@ kubectl -n=default logs -f pyspark-job-driver | grep accuracy
 ## How to run on Airflow locally:
 - Install requirements:
     ```bash
-    pip install requirements_airflow.txt
+    pip install -r requirements_airflow.txt
     ```
 - Run Airflow:
     ```bash
