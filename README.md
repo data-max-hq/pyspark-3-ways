@@ -33,3 +33,20 @@ kubectl -n=default logs -f pyspark-job-driver | grep accuracy
 - Update the \<bucket-name\> in job_dataproc.py file
 - When creating the Daraproc cluster make sure to include Anaconda
 - Upload job_dataproc.py to GCS and submit job
+
+## How to run on Airflow locally:
+- Install requirements:
+    ```bash
+    pip install requirements_airflow.txt
+    ```
+- Run Airflow:
+    ```bash
+    AIRFLOW_HOME=$(pwd) airflow standalone
+    ```
+- Remove example DAGs. Open `airflow.cfg`, change `load_examples = True` to `load_examples = False`
+- Log in to Airflow UI:
+    ```bash
+    url: http://localhost:8080
+    username: admin
+    password: <show during start or in standalone_admin_password.txt>
+    ```
