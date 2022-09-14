@@ -5,7 +5,7 @@ from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 
 spark = (
     SparkSession.builder.config("spark.driver.memory", "10g")
-    .appName("local")
+    .appName("local_airflow")
     .getOrCreate()
 )
 

@@ -3,11 +3,11 @@ from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.classification import LogisticRegression
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
 
-spark = (
-    SparkSession.builder.appName("local").getOrCreate()
-)
+spark = SparkSession.builder.appName("gcp").getOrCreate()
 
-members_df = spark.read.csv("gs://<bucket-name>/data/members_v3.csv", header=True, inferSchema=True)
+members_df = spark.read.csv(
+    "gs://<bucket-name>/data/members_v3.csv", header=True, inferSchema=True
+)
 
 transactions_df = spark.read.csv(
     "gs://<bucket-name>/data/transactions/churn_comp_refresh/transactions_v2.csv",
@@ -16,11 +16,15 @@ transactions_df = spark.read.csv(
 )
 
 user_logs_df = spark.read.csv(
-    "gs://<bucket-name>/data/user_logs/churn_comp_refresh/user_logs_v2.csv", header=True, inferSchema=True
+    "gs://<bucket-name>/data/user_logs/churn_comp_refresh/user_logs_v2.csv",
+    header=True,
+    inferSchema=True,
 )
 
 train_df = spark.read.csv(
-    "gs://<bucket-name>/data/train/churn_comp_refresh/train_v2.csv", header=True, inferSchema=True
+    "gs://<bucket-name>/data/train/churn_comp_refresh/train_v2.csv",
+    header=True,
+    inferSchema=True,
 )
 
 logs_agg = user_logs_df.groupBy("msno").agg(

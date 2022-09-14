@@ -1,4 +1,4 @@
-# This project shows how to run a pyspark job on Kubernetes, GCP and Airflow
+# This project shows how to run a PySpark job on Kubernetes, GCP, and Airflow
 
 ## Simple PySpark model built. Download required dataset in link below:
 https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data
@@ -13,7 +13,7 @@ https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data
 make all
 ```
 
-3. Apply pyspark job
+3. Apply PySpark job
 ```bash
 kubectl apply -f job.yaml
 ```
@@ -35,16 +35,16 @@ kubectl -n=default logs -f pyspark-job-driver | grep accuracy
 - Upload job_dataproc.py to GCS and submit job
 
 ## How to run on Airflow locally:
-1. Install requirements:
+1. Install requirements
     ```bash
     pip install -r requirements_airflow.txt
     ```
-2. Run Airflow:
+2. Run Airflow
     ```bash
     AIRFLOW_HOME=$(pwd) airflow standalone
     ```
 3. Remove example DAGs. Open `airflow.cfg`, change `load_examples = True` to `load_examples = False`
-4. Log in to Airflow UI:
+4. Log in to Airflow UI
     ```
     url: http://localhost:8080
     username: admin
